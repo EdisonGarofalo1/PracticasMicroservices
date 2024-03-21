@@ -4,7 +4,7 @@ spring:
     name: iventario-service
     
 server:
-  port: 8182
+  port: 8186
   
 springdoc:
   api-docs:

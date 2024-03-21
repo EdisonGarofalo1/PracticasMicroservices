@@ -3,7 +3,7 @@ spring:
   application:
     name: cliente-service
 server:
-  port: 8182
+  port: 8183
   
 springdoc:
   api-docs:

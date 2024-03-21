@@ -4,7 +4,7 @@ spring:
     name: venta-service
 
 server:
-  port: 8182
+  port: 8185
   
 springdoc:
   api-docs:
