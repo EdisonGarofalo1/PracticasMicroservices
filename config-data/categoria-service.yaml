@@ -5,9 +5,7 @@ spring:
 server:
   port: 8182
   
-springdoc:
-  api-docs:
-    path: /api-docs
+
 
 spring:
   datasource:
@@ -18,9 +16,3 @@ spring:
   jpa:
     database-platform: org.hibernate.dialect.MySQL8Dialect
 
-#spring.jpa.hibernate.ddl-auto: create
-#spring.jpa.hibernate.ddl-auto: create-drop
-
-logging:
-  level:
-    org.hibernate.SQL: debug
