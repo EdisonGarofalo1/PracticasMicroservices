@@ -4,4 +4,12 @@ spring:
 
 server:
   port: 8182
-  
+
+eureka:
+  client:
+    fetch-registry: true   # true porque es cliente
+    register-with-eureka: true    # true porque  es cliente
+    service-url:
+      default-zone: http://localhost:8187/eureka
+    instance:
+      hostname: localhost
