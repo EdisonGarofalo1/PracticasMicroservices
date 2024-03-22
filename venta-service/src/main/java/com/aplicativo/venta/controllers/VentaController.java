@@ -24,7 +24,7 @@ import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 
 
 @RestController
-@RequestMapping("/api/ventas")
+@RequestMapping("/api/venta")
 
 public class VentaController {
 	
