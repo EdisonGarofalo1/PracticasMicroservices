@@ -6,7 +6,7 @@ spring:
        server:
           git:
            # default-label: config-server    #nommbre de la rama
-           #default-label: eureka
+            #default-label: eureka
             default-label: multiple-instances 
             uri: https://github.com/EdisonGarofalo1/PracticasMicroservices
             search-paths: config-data  # se guarda en una carpeta

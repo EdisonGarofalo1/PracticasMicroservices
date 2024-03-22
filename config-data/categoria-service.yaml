@@ -1,7 +1,3 @@
-spring:
-  application:
-    name: categoria-service
-
 server:
 #  port: 8182
   #para que me de un uerto cualquiera que este disponible
