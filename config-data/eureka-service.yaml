@@ -1,5 +1,5 @@
 server:
-  port: 8187
+  port: 8761
 eureka:
   client:
     fetch-registry: false   # false porque no es cliente
