@@ -1,13 +1,14 @@
 server:
   port: 8081
 spring:
-  cloud:
+  cloud:     
      config:
        server:
           git:
            # default-label: config-server    #nommbre de la rama
             #default-label: eureka
-            default-label: multiple-instances 
+            #default-label: multiple-instances 
+            default-label: gateway
             uri: https://github.com/EdisonGarofalo1/PracticasMicroservices
             search-paths: config-data  # se guarda en una carpeta
   application:
