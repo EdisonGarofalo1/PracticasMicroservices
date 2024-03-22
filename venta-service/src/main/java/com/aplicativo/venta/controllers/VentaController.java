@@ -20,7 +20,7 @@ import com.aplicativo.venta.models.dto.VentaDto;
 import com.aplicativo.venta.models.entity.Venta;
 import com.aplicativo.venta.services.VentaService;
 
-
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 
 
 @RestController
@@ -45,6 +45,7 @@ public class VentaController {
 			return ventaService.findById(id);
 		}
 		
+		 @CircuitBreaker(name = "productoCB",fallbackMethod = "fallBackGetproducto")
 		@GetMapping("/buscarProducto/{id}")
 		
 		public ProductoDto producto(@PathVariable Long id) throws Exception {
@@ -66,7 +67,7 @@ public class VentaController {
 		        
 		  }
 		  
-		  
+		  @CircuitBreaker(name = "productoCB",fallbackMethod = "fallBackPutproducto")
 		  @PutMapping("updateFei/{id}")
 		    public ProductoDto editarProductoFeing(@PathVariable Long id, @RequestBody ProductoDto productoDto)throws Exception {
 			
@@ -82,6 +83,7 @@ public class VentaController {
 		  }
 		   
 			
+		  @CircuitBreaker(name = "productoCB",fallbackMethod = "fallBackPostproducto")
 		   @PostMapping("/guadarproducto")
 			@ResponseStatus(HttpStatus.CREATED)
 			public ProductoDto crear(@RequestBody ProductoDto producto) throws Exception {
@@ -125,5 +127,24 @@ public class VentaController {
 	            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	        }
 	    }
+	   
+	   
+	   
+	   private ResponseEntity<ProductoDto> fallBackGetproducto(@PathVariable("id") int id,
+				RuntimeException excepcion) {
+			return new ResponseEntity("El producto : " + id + "no se encuentra en el almacen ", HttpStatus.OK);
+		} 
+	   
+	   
+		private ResponseEntity<ProductoDto> fallBackPutproducto(@PathVariable("id") int id, @RequestBody ProductoDto producto,
+				RuntimeException excepcion) {
+			return new ResponseEntity("El producto : " + producto+ "  producto actulame no esta en el alamace", HttpStatus.OK);
+		}
+		
+		
+		private ResponseEntity<ProductoDto> fallBackPostproducto( @RequestBody ProductoDto producto,
+				RuntimeException excepcion) {
+			return new ResponseEntity("El producto : " + producto + " no tiene se puede aguadar en el almacn", HttpStatus.OK);
+		}
 
 }

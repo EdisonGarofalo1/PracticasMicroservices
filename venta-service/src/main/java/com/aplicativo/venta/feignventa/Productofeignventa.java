@@ -15,7 +15,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 
-@FeignClient(name = "producto-service",url = "http://localhost:8184")
+//@FeignClient(name = "producto-service",url = "http://localhost:8184")
+@FeignClient(name = "producto-service")
 @RequestMapping("/api/producto")
 
 public interface Productofeignventa {
