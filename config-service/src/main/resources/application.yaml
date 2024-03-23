@@ -8,7 +8,9 @@ spring:
            # default-label: config-server    #nommbre de la rama
             #default-label: eureka
             #default-label: multiple-instances 
-            default-label: circuit-breaker
+            #default-label: gateway
+            #default-label: circuit-breaker
+            default-label: zipkin-sleuth
             uri: https://github.com/EdisonGarofalo1/PracticasMicroservices
             search-paths: config-data  # se guarda en una carpeta
   application:

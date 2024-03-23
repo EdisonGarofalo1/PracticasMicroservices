@@ -32,3 +32,6 @@ spring:
           uri: lb://venta-service
           predicates:
             - Path=/api/venta/**
+
+
+          

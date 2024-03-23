@@ -45,7 +45,7 @@ public class VentaController {
 			return ventaService.findById(id);
 		}
 		
-		 @CircuitBreaker(name = "productoCB",fallbackMethod = "fallBackGetproducto")
+		//@CircuitBreaker(name = "productoCB",fallbackMethod = "fallBackGetproducto")
 		@GetMapping("/buscarProducto/{id}")
 		
 		public ProductoDto producto(@PathVariable Long id) throws Exception {
@@ -130,7 +130,7 @@ public class VentaController {
 	   
 	   
 	   
-	   private ResponseEntity<ProductoDto> fallBackGetproducto(@PathVariable("id") int id,
+	   private ResponseEntity<ProductoDto> fallBackGetproducto(@PathVariable("id") Long id,
 				RuntimeException excepcion) {
 			return new ResponseEntity("El producto : " + id + "no se encuentra en el almacen ", HttpStatus.OK);
 		} 
